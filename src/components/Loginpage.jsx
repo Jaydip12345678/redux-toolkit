@@ -5,7 +5,7 @@ import { Userdata } from '../redux/middlewares/auth'
 import { useNavigate } from 'react-router-dom'
 
 function Loginpage() {
-
+    const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     const [mail, setMail] = useState('')
     const [Password, setPassword] = useState('')
     const [error, setError] = useState('')
@@ -16,7 +16,7 @@ function Loginpage() {
     } = useSelector((state) => state.auth);
 
     useEffect(() => {
-        if (username.length > 0) {
+        if (username?.length > 5) {
             localStorage.setItem("UserDetails", username);
             navigate('/1')
         }
@@ -24,29 +24,27 @@ function Loginpage() {
 
 
     const submiitt = () => {
-        if (mail.length > 0 && Password.length > 0) {
+        if (mail?.match(isValidEmail) && mail.length > 5 && Password.length > 3) {
             setError("")
             dispatch(Userdata(mail))
         }
         else {
-            setError("Enter Valid Details")
+            setError("Enter Valid Email or Password")
         }
     }
 
     return (
-        <div>
-            <form className="box">
-                <h1>login</h1>
-                <input type="email" name="username" id="username" placeholder="Username" autoComplete="off" required value={mail} onChange={(e) => setMail(e.target.value)} />
-                <input type="password" name="pass" id="pass" placeholder="Password" autoComplete="off" required value={Password} onChange={(e) => setPassword(e.target.value)} />
-                <button id="submit" onClick={submiitt} type='button' >
-                    Login
-                </button>
-                <div style={{ color: 'red', fontSize: '10px' }} >
-                    {error}
-                </div>
-            </form>
-        </div>
+        <form className="box">
+            <h1>login</h1>
+            <input type="email" name="email" id="username" placeholder="Username" autoComplete="off" required value={mail} onChange={(e) => (setMail(e.target.value), setError(''))} />
+            <input type="password" name="pass" id="pass" placeholder="Password" autoComplete="off" required value={Password} onChange={(e) => (setPassword(e.target.value), setError(''))} />
+            <button id="submit" onClick={submiitt} type='button' >
+                Login
+            </button>
+            <div style={{ color: 'red', fontSize: '10px' }} >
+                {error}
+            </div>
+        </form>
     )
 }
 
