@@ -37,10 +37,7 @@ function Secondcom() {
     const { name, value, type, checked } = e.target;
     if (type === 'checkbox') {
       setForm((prev) => ({
-        ...prev,
-        hobby: checked
-          ? [...prev.hobby, value]
-          : prev.hobby.filter((h) => h !== value),
+        ...prev, hobby: checked ? [...prev.hobby, value] : prev.hobby.filter((h) => h !== value)
       }));
     } else {
       setForm({ ...form, [name]: value });
@@ -49,8 +46,8 @@ function Secondcom() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (form.firstName !== '', form.secondName !== '', form.dob !== '', form.address !== '', form.gender !== '',
-      form.city !== '', form.country !== '') {
+    if (form.firstName !== '' && form.secondName !== '' && form.dob !== '' && form.address !== '' && form.gender !== '' &&
+      form.city !== '' && form.country !== '') {
       if (editIndex === -1) {
         const newData = [...data, form];
         setData(newData);
