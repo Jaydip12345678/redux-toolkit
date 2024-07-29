@@ -6,6 +6,7 @@ import Third from './components/third';
 import Loginpage from './components/Loginpage';
 import RouteAuthGuard from './comman/RouteAuthGuard';
 import RouteAuthGuard2 from './comman/RouteAuthGuard2';
+import PageNotFound from './comman/PageNotFound';
 
 function App() {
 
@@ -31,6 +32,8 @@ function App() {
           <RouteAuthGuard2 >
             <Third />
           </RouteAuthGuard2>} />
+
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
