@@ -4,7 +4,7 @@ const RouteAuthGuard = ({ children }) => {
     const Useravalable = localStorage.getItem('UserDetails');
 
     if (Useravalable) {
-        return <Navigate to="/1" replace />;
+        return <Navigate to="/home" replace />;
     } else {
         return children;
     }

@@ -17,7 +17,7 @@ function Loginpage() {
     useEffect(() => {
         if (username?.length > 5) {
             localStorage.setItem("UserDetails", username);
-            navigate('/1')
+            navigate('/home')
         }
     }, [username, navigate])
 

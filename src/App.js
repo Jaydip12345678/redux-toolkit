@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import Firstcomponents from '../src/components/firstcomponents';
+import Home from './components/Home';
 import Secondcom from './components/secondcom';
 import Third from './components/third';
 import Loginpage from './components/Loginpage';
@@ -19,9 +19,9 @@ function App() {
           </RouteAuthGuard>
         } />
 
-        <Route path="/1" element={
+        <Route path="/home" element={
           <RouteAuthGuard2 >
-            <Firstcomponents />
+            <Home />
           </RouteAuthGuard2>
         } />
         <Route path="/2" element={

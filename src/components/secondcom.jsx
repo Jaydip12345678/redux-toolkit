@@ -252,7 +252,7 @@ function Secondcom() {
           </div>
 
           <h2 className="text-2xl font-bold mt-8 mb-2 text-center">Records</h2>
-          <div className="w-[100%] mx-auto bg-white p-6 rounded-lg shadow-lg">
+          <div className="w-[100%] overflow-x-scroll mx-auto bg-white p-6 rounded-lg shadow-lg">
             <table className="min-w-full bg-white">
               <thead>
                 <tr>
@@ -278,19 +278,21 @@ function Secondcom() {
                     <td className="px-4 py-2 border">{item.hobby.join(', ')}</td>
                     <td className="px-4 py-2 border">{item.city}</td>
                     <td className="px-4 py-2 border">{item.country}</td>
-                    <td className="px-4 py-4 border text-center flex">
-                      <button
-                        onClick={() => handleEdit(index)}
-                        className="bg-yellow-500 text-white py-1 px-2 rounded-lg mr-2"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDelete(index)}
-                        className="bg-red-500 text-white py-1 px-2 rounded-lg"
-                      >
-                        Delete
-                      </button>
+                    <td className="px-4 py-4 border">
+                      <div className='flex' >
+                        <button
+                          onClick={() => handleEdit(index)}
+                          className="bg-yellow-500 text-white py-1 px-2 rounded-lg mr-2"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleDelete(index)}
+                          className="bg-red-500 text-white py-1 px-2 rounded-lg"
+                        >
+                          Delete
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))}
