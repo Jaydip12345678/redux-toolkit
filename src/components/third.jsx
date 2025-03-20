@@ -29,10 +29,10 @@ function Third() {
   }
 
   return (
-    <div style={{ position: 'relative' }} >
+    <div style={{ position: 'relative', color:'white' }} >
       This is third component's
       <div >
-        <button className='p-5 m-2 border rounded-md bg-slate-200' onClick={navi} >Click to Home page</button>
+        <button className='p-5 m-2 border rounded-md bg-slate-200 text-black' onClick={navi} >Click to Home page</button>
       </div>
       <div>
         <div className='font-bold px-10 py-2' >User Data</div>
